@@ -1,0 +1,33 @@
+import getpass
+import sys
+import telnet lib
+
+HOST = "X.X.X.X"
+user = input("Enter username: ")
+password = getpass.getpass(prompt="Enter your password: ")
+
+tn = telnetlib.telnet(HOST) ------ tn is the variable, it initiates telnet connection to the current IP siwtch
+
+tn.read_until("Username: ")
+tn.write(user + "\n")
+if password:       ------------ to check if password was already entered
+    tn.read_until("Password: ") -- waits until switch sends this prompt
+    tn.write(password + "\n")
+
+tn.write("enable\n")
+tn.write("cisco\n")
+tn.write("conf t\n")
+tn.write("int gi0.10\n)
+tn.write("vlan 10")
+tn.write("nameif Inside\n")
+tn.write("ip address x.x.x.x x.x.x.x\n")
+tn.write("end\n")
+tn.write("exit\n"
+
+print tn.read_all() --- tn is typically a telnetlib.Telnet object created after connecting to a Telnet server.
+                        .read_all() reads all data from the Telnet connection until the connection is closed by the server.
+                         It blocks (waits) until the remote side closes the connection — meaning your program will hang if the server never closes it
+
+
+
+
