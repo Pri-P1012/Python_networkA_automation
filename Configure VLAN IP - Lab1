@@ -4,7 +4,7 @@ import telnet lib
 
 HOST = "X.X.X.X"
 user = input("Enter username: ")
-password = getpass.getpass(prompt="Enter your password: ")
+password = getpass.getpass(prompt="Enter your password: ") -- to accept the password and hide it when user is typing
 
 tn = telnetlib.telnet(HOST) ------ tn is the variable, it initiates telnet connection to the current IP siwtch
 
